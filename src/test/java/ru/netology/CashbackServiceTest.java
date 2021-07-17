@@ -17,13 +17,18 @@ public class CashbackServiceTest {
 
     @Test
     public void low1000() {
-        assertEquals( 850, cashbackService.remain(150));
+        assertEquals(850, cashbackService.remain(150));
     }
 
     @Test
     public void underZero() {
         // негативный падающий тест
         assertEquals(0, cashbackService.remain(-150));
+    }
 
+    @Test
+    public void exactly1000() {
+        //  падающий тест
+        assertEquals(1000, cashbackService.remain(1000));
     }
 }
