@@ -24,4 +24,10 @@ class CashbackServiceTest {
         // негативный падающий тест
         assertEquals(cashbackService.remain(-150), 0);
     }
+
+    @Test
+    public void exactly1000() {
+        // негативный падающий тест
+        assertEquals(cashbackService.remain(1000), 1000);
+    }
 }
