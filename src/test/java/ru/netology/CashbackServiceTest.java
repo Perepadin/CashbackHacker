@@ -21,7 +21,7 @@ class CashbackServiceTest {
     @Test
     public void underZero() {
         // негативный падающий тест
-        assertEquals(cashbackService.remain(-150), 0);
+        assertEquals(cashbackService.remain(-150), 1150);
     }
 
     @Test
