@@ -2,6 +2,7 @@ package ru.netology;
 
 
 import org.junit.Test;
+import org.junit.jupiter.api.Assertions;
 
 import static org.junit.Assert.*;
 
@@ -11,7 +12,6 @@ public class CashbackServiceTest {
 
     @Test
     public void more1000() {
-        CashbackService service = new CashbackService();
         assertEquals(400, cashbackService.remain(5600));
     }
 
@@ -30,5 +30,27 @@ public class CashbackServiceTest {
     public void exactly1000() {
         //  падающий тест
         assertEquals(1000, cashbackService.remain(1000));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void ApiMore1000() {
+        Assertions.assertEquals(400, cashbackService.remain(5600));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void ApiLow1000() {
+        Assertions.assertEquals(850, cashbackService.remain(150));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void ApiUnderZero() {
+        // негативный падающий тест
+        Assertions.assertEquals(0, cashbackService.remain(-150));
+    }
+
+    @org.junit.jupiter.api.Test
+    public void ApiExactly1000() {
+        //  падающий тест
+        Assertions.assertEquals(1000, cashbackService.remain(1000));
     }
 }
