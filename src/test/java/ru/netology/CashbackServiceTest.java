@@ -3,30 +3,30 @@ package ru.netology;
 
 import org.testng.annotations.Test;
 
-import static org.testng.AssertJUnit.assertEquals;
+import static org.testng.Assert.*;
 
 class CashbackServiceTest {
     private CashbackService cashbackService = new CashbackService();
 
     @Test
     public void more1000() {
-        assertEquals(400, cashbackService.remain(5600));
+        assertEquals(cashbackService.remain(5600), 400);
     }
 
     @Test
     public void low1000() {
-        assertEquals(850, cashbackService.remain(150));
+        assertEquals(cashbackService.remain(150), 850);
     }
 
     @Test
     public void underZero() {
         // негативный падающий тест
-        assertEquals(0, cashbackService.remain(-150));
+        assertEquals(cashbackService.remain(-150), 0);
     }
 
     @Test
     public void exactly1000() {
         // негативный падающий тест
-        assertEquals(0, cashbackService.remain(1000));
+        assertEquals(cashbackService.remain(1000), 0);
     }
 }
